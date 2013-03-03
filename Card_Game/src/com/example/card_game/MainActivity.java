@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements OnClickListener, OnSeekBar
     private Player t;
     private int pot;
     private int potVal;
+    private TextView CardDis;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -35,9 +36,11 @@ public class MainActivity extends Activity implements OnClickListener, OnSeekBar
 		Log.d("Init","Player t added card "+t.hand.getLast().getSuit()+ t.hand.getLast().getSuit());
 		
 		bar = (SeekBar)findViewById(R.id.seekBar1);
+		bar.setMax(t.getAmount());
 		bar.setOnSeekBarChangeListener(this);
 		textProgress = (TextView)findViewById(R.id.textViewProgress);
 		stat = (TextView)findViewById(R.id.stat);
+		CardDis = (TextView)findViewById(R.id.CardDis);
 		Button hit = (Button) findViewById(R.id.hit);
 		Button stay = (Button) findViewById(R.id.stay);
 		stay.setOnClickListener(this);
@@ -59,15 +62,19 @@ public class MainActivity extends Activity implements OnClickListener, OnSeekBar
         	if(potVal!=0){
         		t.setAmount(t.getAmount()-potVal);
         		Log.d("Game","Player t added the amount of  "+potVal+" to the pot");
-        		t.hand.add(a.deck.remove());
-        		stat.setText("Amount Added Card Given");
+        		Card temp =a.deck.remove(); 
+        		t.hand.add(temp);
+        		pot+=potVal;
+        		stat.setText("Amount of "+potVal+" Added to pot Card Given\nThe pot is now"+pot+"");
+        		bar.setMax(t.getAmount());
+        		CardDis.setText(CardDis.getText()+"\n"+temp+"");
+        		if(bar.getMax()==0) potVal=0;
+        		
         	}
         	else{
         		stat.setText("Please set the pot");
-        		//display error
         	}
-         // do something
-        	
+        
          break;
         case R.id.stay:
          // do something else
