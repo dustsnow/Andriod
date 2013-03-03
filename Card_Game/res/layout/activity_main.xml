@@ -46,7 +46,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="10" 
-        android:textIsSelectable="true"/>
+        android:textIsSelectable="true"
+        android:maxLines = "10"
+		android:scrollbars = "vertical"
+		android:transcriptMode="alwaysScroll"
+		android:stackFromBottom="true"/>
 
     <TextView
         android:id="@+id/CardDis"
@@ -55,6 +59,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/stat"
-        android:text="@string/Null" />
+        android:text="@string/Null"
+        android:textIsSelectable="true"
+        android:maxLines = "10"
+        android:transcriptMode="alwaysScroll" 
+        android:stackFromBottom="true"/>
+
+    <Button
+        android:id="@+id/Reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/reset" />
 
 </RelativeLayout>

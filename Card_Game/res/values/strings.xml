@@ -7,5 +7,6 @@
     <string name="Hit">Hit</string>
     <string name="bar">progress displayed here</string>
     <string name="Null"></string>
+    <string name="reset">reset</string>
 
 </resources>
