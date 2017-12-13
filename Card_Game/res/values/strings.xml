@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">Card_Game</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="Stay">Stay</string>
+    <string name="Hit">Hit</string>
+    <string name="bar">progress displayed here</string>
+    <string name="Null"></string>
+    <string name="reset">reset</string>
 
 </resources>
